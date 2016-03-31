@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * eGlobe IT Solutions (P)Ltd.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.eglobeits.com/license.txt
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to hello@eglobeits.com so we can send you a copy immediately.
+ *
+ * =================================================================
+ *                     MAGENTO USAGE NOTICE
+ * =================================================================
+ * This package designed & developed for Magento COMMUNITY edition
+ * eGits does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * eGits does not provide extension support in case of
+ * incorrect edition usage.
+ * =================================================================
+ *
+ * @category   Egits
+ * @package    Egits_GoogleTagManager
+ * @version    0.1.0
+ * @copyright  Copyright (c) 2015-2016 eGlobe IT Solutions (P)Ltd. (http://www.eglobeits.com/)
+ * @author     eGits Team <hello@eglobeits.com>
+ * @license    http://ecommerce.eglobeits.com/license.txt
+ */
+-->
+<config>
+    <tabs>
+        <egits translate="label" module="core">
+            <label>Egits Extensions</label>
+            <sort_order>101</sort_order>
+        </egits>
+    </tabs>
+    <sections>
+        <egits_gtm translate="label" module="core">
+            <label>Google Tag Manager</label>
+            <tab>egits</tab>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general translate="label" module="core">
+                    <label>General</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>0</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>0</sort_order>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <container_enabled translate="label">
+                            <label>Enabled Container</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>10</sort_order>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><active>1</active></depends>
+                        </container_enabled>
+                        <container translate="label">
+                            <label>Container Snippet</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><active>1</active><container_enabled>1</container_enabled></depends>
+                            <comment>Save contanier snippet here</comment>
+                        </container>
+                        <container_id translate="label">
+                            <label>Container ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><active>1</active><container_enabled>0</container_enabled></depends>
+                        </container_id>
+                    </fields>
+                </general>
+                <transaction>
+                    <label>Transaction</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>0</sort_order>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <affiliation translate="label">
+                            <label>Transaction Affiliation</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><active>1</active></depends>
+                        </affiliation>
+                    </fields>                    
+                </transaction>
+                <remarketing translate="label">
+                    <label>Remarketing</label>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>0</sort_order>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                    </fields>
+                </remarketing>
+            </groups>
+        </egits_gtm>
+    </sections>
+</config>

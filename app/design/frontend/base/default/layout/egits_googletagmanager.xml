@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * eGlobe IT Solutions (P)Ltd.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.eglobeits.com/license.txt
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to hello@eglobeits.com so we can send you a copy immediately.
+ *
+ * =================================================================
+ *                     MAGENTO USAGE NOTICE
+ * =================================================================
+ * This package designed & developed for Magento COMMUNITY edition
+ * eGits does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * eGits does not provide extension support in case of
+ * incorrect edition usage.
+ * =================================================================
+ *
+ * @category   Egits
+ * @package    Egits_GoogleTagManager
+ * @version    0.1.0
+ * @copyright  Copyright (c) 2015-2016 eGlobe IT Solutions (P)Ltd. (http://www.eglobeits.com/)
+ * @author     eGits Team <hello@eglobeits.com>
+ * @license    http://ecommerce.eglobeits.com/license.txt
+ */
+-->
+
+<layout>
+    <default>
+        <reference name="after_body_start">
+            <block type="egits_gtm/tag" name="egits.gtm.code" template="egits/googletagmanager/container.phtml">
+                <block type="core/text_list" name="egits.gtm.data" as="dataLayer" translate="label">
+                    <label>Data Layer</label>
+                </block>
+            </block>
+        </reference>
+        <reference name="egits.gtm.data">
+            <block type="egits_gtm/remarketing" name="egits.gtm.remarketing" template="egits/googletagmanager/remarketing-data.phtml"/>
+        </reference>
+    </default>
+    <checkout_onepage_success>
+        <reference name="egits.gtm.data">
+            <block type="egits_gtm/transactions" name="egits.gtm.transactions" before="egits.gtm.remarketing" template="egits/googletagmanager/tranaction-data.phtml"/>
+        </reference>
+        <reference name="egits.gtm.remarketing">
+            <action method="setPageType"><type>purchase</type></action>
+        </reference>
+    </checkout_onepage_success>
+    <checkout_cart_index>
+        <reference name="egits.gtm.remarketing">
+            <action method="setPageType"><type>cart</type></action>
+        </reference>
+    </checkout_cart_index>
+    <cms_index_index>
+        <reference name="egits.gtm.remarketing">
+            <action method="setPageType"><type>home</type></action>
+        </reference>
+    </cms_index_index>
+    <catalog_category_view>
+        <reference name="egits.gtm.remarketing">
+            <action method="setPageType"><type>category</type></action>
+        </reference>
+    </catalog_category_view>
+    <catalog_product_view>
+        <reference name="egits.gtm.remarketing">
+            <action method="setPageType"><type>product</type></action>
+        </reference>
+    </catalog_product_view>
+    <catalogsearch_result_index>
+        <reference name="egits.gtm.remarketing">
+            <action method="setPageType"><type>searchresults</type></action>
+        </reference>
+    </catalogsearch_result_index>
+    <catalogsearch_advanced_result>
+        <reference name="egits.gtm.remarketing">
+            <action method="setPageType"><type>searchresults</type></action>
+        </reference>
+    </catalogsearch_advanced_result>
+</layout>
